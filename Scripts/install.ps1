@@ -5,6 +5,12 @@ $tempZip = "$env:LOCALAPPDATA\WinConfigs.zip"
 $iconUrl = "https://raw.githubusercontent.com/fr0st-iwnl/WinConfigs/refs/heads/master/Assets/icon.ico"
 $extractedFolder = "$env:LOCALAPPDATA\WinConfigs"  # Extracted folder location in AppData\Local\Temp
 $shortcutPath = "$desktopPath\WinConfigs.lnk"  # Shortcut will be on Desktop
+$assetsFolder = "$extractedFolder\Assets"
+
+if (-not (Test-Path -Path $assetsFolder)) {
+    Write-Host "Creating Assets folder..." -ForegroundColor Yellow
+    New-Item -ItemType Directory -Path $assetsFolder -Force | Out-Null
+}
 
 # Step 1: Download the ZIP file
 Write-Host "Downloading the repository..." -ForegroundColor Cyan
