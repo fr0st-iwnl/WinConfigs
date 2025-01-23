@@ -147,4 +147,5 @@ Each repository will be listed with a prompt when you run the script, asking if 
 - [x] Improve the script and fix minor bugs for smoother user experience.
 - [x] Add a new category in the main menu called "Tweaks"
 - [x] Fix some bugs
-- [ ] Add simple notes for the tweaks to explain what they do and improve the script. Maybe make a wiki page.
+- [x] Add simple notes for the tweaks to explain what they do and improve the script. Maybe make a wiki page.
+- [ ] Add configuration for buckets and fonts in Scoop.
