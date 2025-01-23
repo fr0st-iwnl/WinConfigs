@@ -1,6 +1,6 @@
 @echo off
 cls
-title "WinConfigs v1.5 | made by @fr0st-iwnl"
+title "WinConfigs v1.6 | made by @fr0st-iwnl"
 
 ::========================================================================================================
 ::
@@ -51,7 +51,7 @@ set "COLOR_MAGENTA=%ESC%[35m"
 ::-------------------
 :: VERSION CHECK
 ::-------------------
-set "LOCAL_VERSION=1.5"
+set "LOCAL_VERSION=1.6"
 
 for /f "delims=" %%i in ('powershell -Command "(Invoke-WebRequest -Uri https://pastebin.com/raw/ikwbpnXd).Content.Trim()"') do set "LATEST_VERSION=%%i"
 
@@ -212,7 +212,9 @@ echo %COLOR_MAGENTA%************************************%COLOR_RESET%
 echo %COLOR_CYAN%         WINDOWS DEFENDER%COLOR_RESET%
 echo %COLOR_MAGENTA%************************************%COLOR_RESET%
 echo.
-echo %COLOR_CYAN% $ Official Repository : https://github.com/ionuttbara/windows-defender-remover%COLOR_RESET%
+echo %COLOR_LIGHT_CYAN%[?] Documentation: https://winconfigs.netlify.app/docs %COLOR_RESET%
+echo.
+echo %COLOR_GREEN%[$] Official Repository : https://github.com/ionuttbara/windows-defender-remover%COLOR_RESET%
 echo.
 echo - [%COLOR_RED%WARNING%COLOR_RESET%] %COLOR_CYAN%This will turn off your antivirus and remove some system processes, making your computer "faster"
 echo   but with less protection. It won't ask for permissions when running apps anymore!%COLOR_RESET%
@@ -246,6 +248,8 @@ cls
 echo %COLOR_MAGENTA%************************************%COLOR_RESET%
 echo %COLOR_CYAN%      WEBSEARCH%COLOR_RESET%
 echo %COLOR_MAGENTA%************************************%COLOR_RESET%
+echo.
+echo %COLOR_LIGHT_CYAN%[?] Documentation: https://winconfigs.netlify.app/docs %COLOR_RESET%
 echo.
 echo %COLOR_GREEN%[1] Enable Web Search%COLOR_RESET%
 echo %COLOR_GREEN%[2] Disable Web Search%COLOR_LIGHT_RED% (Recommended)%COLOR_RESET% %COLOR_RESET%
@@ -332,6 +336,8 @@ echo %COLOR_MAGENTA%************************************%COLOR_RESET%
 echo %COLOR_CYAN%   REMOVE UNNECESSARY APPS%COLOR_RESET%
 echo %COLOR_MAGENTA%************************************%COLOR_RESET%
 echo.
+echo %COLOR_GREEN%[?] Documentation: https://winconfigs.netlify.app/docs %COLOR_RESET%
+echo.
 
 :: List of apps to remove
 setlocal enabledelayedexpansion
@@ -410,6 +416,8 @@ cls
 echo %COLOR_MAGENTA%************************************%COLOR_RESET%
 echo %COLOR_CYAN%           NOTIFICATIONS%COLOR_RESET%
 echo %COLOR_MAGENTA%************************************%COLOR_RESET%
+echo.
+echo %COLOR_LIGHT_CYAN%[?] Documentation: https://winconfigs.netlify.app/docs %COLOR_RESET%
 echo.
 echo %COLOR_GREEN%[1] Add Notifications%COLOR_RESET%
 echo %COLOR_GREEN%[2] Remove Notifications %COLOR_LIGHT_RED%(Not Recommended)%COLOR_RESET% %COLOR_RESET%
@@ -498,6 +506,8 @@ echo %COLOR_MAGENTA%************************************%COLOR_RESET%
 echo %COLOR_CYAN%           CONTEXT MENU%COLOR_RESET%
 echo %COLOR_MAGENTA%************************************%COLOR_RESET%
 echo.
+echo %COLOR_LIGHT_CYAN%[?] Documentation: https://winconfigs.netlify.app/docs %COLOR_RESET%
+echo.
 echo %COLOR_GREEN%[1] Add Container Context Menu%COLOR_RESET%
 echo %COLOR_GREEN%[2] Remove Container Context Menu %COLOR_LIGHT_RED%(Recommended)%COLOR_RESET%%COLOR_RESET%
 echo.
@@ -575,6 +585,8 @@ cls
 echo %COLOR_MAGENTA%************************************%COLOR_RESET%
 echo %COLOR_CYAN%               THEMES%COLOR_RESET%
 echo %COLOR_MAGENTA%************************************%COLOR_RESET%
+echo.
+echo %COLOR_LIGHT_CYAN%[?] Documentation: https://winconfigs.netlify.app/docs %COLOR_RESET%
 echo.
 echo %COLOR_GREEN%[1] Lightweight Theme%COLOR_RESET%
 echo %COLOR_GREEN%[2] Heavyweight Theme%COLOR_RESET%
@@ -771,6 +783,8 @@ echo %COLOR_MAGENTA%************************************%COLOR_RESET%
 echo %COLOR_CYAN%         SEARCH INDEXING%COLOR_RESET%
 echo %COLOR_MAGENTA%************************************%COLOR_RESET%
 echo.
+echo %COLOR_LIGHT_CYAN%[?] Documentation: https://winconfigs.netlify.app/docs %COLOR_RESET%
+echo.
 echo %COLOR_GREEN%[1] Enable Search Indexing%COLOR_RESET%
 echo %COLOR_GREEN%[2] Disable Search Indexing %COLOR_LIGHT_RED%(Not Recommended)%COLOR_RESET%%COLOR_RESET%
 echo.
@@ -862,6 +876,8 @@ echo %COLOR_MAGENTA%************************************%COLOR_RESET%
 echo %COLOR_CYAN%      REMOVE MICROSOFT EDGE%COLOR_RESET%
 echo %COLOR_MAGENTA%************************************%COLOR_RESET%
 echo.
+echo %COLOR_LIGHT_CYAN%[?] Documentation: https://winconfigs.netlify.app/docs %COLOR_RESET%
+echo.
 echo %COLOR_YELLOW%Running PowerShell script to remove Microsoft Edge...%COLOR_RESET%
 
 :: Run the PowerShell script from Scripts folder with admin privileges
@@ -883,8 +899,10 @@ cls
 type ASCII\ascii.txt
 echo.
 echo %COLOR_MAGENTA%********************************************%COLOR_RESET%
-echo %COLOR_CYAN%Microsoft Activation Scripts (MAS)%COLOR_RESET%
+echo %COLOR_CYAN%     Microsoft Activation Scripts (MAS)%COLOR_RESET%
 echo %COLOR_MAGENTA%********************************************%COLOR_RESET%
+echo.
+echo %COLOR_LIGHT_CYAN%[?] Documentation: https://winconfigs.netlify.app/docs %COLOR_RESET%
 echo.
 echo %COLOR_GREEN%Github: https://github.com/massgravel/Microsoft-Activation-Scripts%COLOR_RESET%
 echo.
