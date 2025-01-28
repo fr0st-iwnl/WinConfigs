@@ -1,6 +1,6 @@
 @echo off
 cls
-title "WinConfigs v1.6 | made by @fr0st-iwnl"
+title "WinConfigs v1.7 | made by @fr0st-iwnl"
 
 ::========================================================================================================
 ::
@@ -51,9 +51,9 @@ set "COLOR_MAGENTA=%ESC%[35m"
 ::-------------------
 :: VERSION CHECK
 ::-------------------
-set "LOCAL_VERSION=1.6"
+set "LOCAL_VERSION=1.7"
 
-for /f "delims=" %%i in ('powershell -Command "(Invoke-WebRequest -Uri https://pastebin.com/raw/ikwbpnXd).Content.Trim()"') do set "LATEST_VERSION=%%i"
+for /f "delims=" %%i in ('powershell -Command "(Invoke-WebRequest -Uri https://winconfigs.netlify.app/version/version.txt).Content.Trim()"') do set "LATEST_VERSION=%%i"
 
 if "%LOCAL_VERSION%"=="%LATEST_VERSION%" (
     goto main_menu
