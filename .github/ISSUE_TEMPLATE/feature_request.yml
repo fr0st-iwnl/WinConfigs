@@ -1,6 +1,6 @@
 name: Feature Request
 description: Share an idea for a new feature
-labels: ["help wanted"]
+labels: ["enhancement"]
 
 body:
   - type: checkboxes
@@ -23,7 +23,7 @@ body:
     id: short_desc
     attributes:
       label: Explain the feature you want
-      description: "Explain the feature you want. A short and clear description of what you want."
+      description: "A short and clear description of what you want."
     validations:
       required: false
 
