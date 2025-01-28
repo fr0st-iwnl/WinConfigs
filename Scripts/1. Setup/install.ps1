@@ -79,4 +79,4 @@ $shortcut.Save()
 # Step 9: Optional: Remove the extracted folder from Temp if no longer needed (comment out if you want to keep)
 # Remove-Item -Path $extractedFolder -Recurse -Force
 
-Write-Host "Repository downloaded, extracted to AppData\Local\, and shortcut created on Desktop." -ForegroundColor Green
+Write-Host "Repository downloaded, extracted to AppData\Local, and shortcut created on Desktop." -ForegroundColor Green
