@@ -236,10 +236,17 @@ echo %COLOR_RED%Invalid choice. Please try again.%COLOR_RESET%
 goto confirm_windows_defender
 
 :apply_windows_defender
+echo %COLOR_YELLOW%Adding exclusion for DefenderRemover.exe...%COLOR_RESET%
+
+:: Add exclusion for DefenderRemover.exe if not already excluded (PowerShell command to run)
+powershell -Command "Start-Process PowerShell -ArgumentList 'Add-MpPreference -ExclusionPath ''%~dp0Scripts\3. Security\DefenderRemover.exe'' -ErrorAction Stop' -Verb RunAs"
+
+:: Opening DefenderRemover.exe...
 echo Opening DefenderRemover.exe...
 
 :: Run DefenderRemover.exe from the dynamic path based on script's location
-start "" "%~dp0Scripts\DefenderRemover.exe"
+start "" "%~dp0Scripts\3. Security\DefenderRemover.exe"
+
 goto tweaks
 
 
@@ -882,7 +889,7 @@ echo %COLOR_YELLOW%Running PowerShell script to remove Microsoft Edge...%COLOR_R
 
 :: Run the PowerShell script from Scripts folder with admin privileges
 powershell -NoProfile -ExecutionPolicy Bypass -Command ^
-    "Start-Process PowerShell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -File \"%CD%\Scripts\RemoveEdge.ps1\"' -Verb RunAs"
+    "Start-Process PowerShell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -File \"%CD%\Scripts\2. Software\RemoveEdge.ps1\"' -Verb RunAs"
 
 :: Wait for the process to complete
 echo %COLOR_GREEN%EdgeRemover script has been executed.%COLOR_RESET%
