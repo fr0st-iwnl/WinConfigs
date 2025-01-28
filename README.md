@@ -71,8 +71,7 @@ git clone https://github.com/fr0st-iwnl/WinConfigs.git
 <summary>⚙️ System Tweaks</summary>
 
 - **Performance Tweaks**
-  - Optimizes system performance by adjusting settings with **WinUtil**.
-  - Includes tweaks for system responsiveness and efficiency.
+  - Improves system performance by using **WinUtil** and **WinConfigs** Personal Tweaks, making your system faster and more responsive. Check the [Docs](https://winconfigs.netlify.app/docs) for details on what our tweaks do.
 
 </details>
 
@@ -148,4 +147,3 @@ Each repository will be listed with a prompt when you run the script, asking if 
 - [x] Add a new category in the main menu called "Tweaks"
 - [x] Fix some bugs
 - [x] Add simple notes for the tweaks to explain what they do and improve the script. Maybe make a wiki page.
-- [ ] Add configuration for buckets and fonts in Scoop.
