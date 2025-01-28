@@ -1,0 +1,35 @@
+name: Feature Request
+description: Share an idea for a new feature
+labels: ["help wanted"]
+  - type: checkboxes
+    attributes:
+      label: Already searched for help? *
+      description: Before asking for help, check if a similar issue or solution already exists in the open or closed issues.
+      options:
+      - label: I have searched the existing open and closed issues.
+        required: true
+
+  - type: textarea
+    id: problem_req
+    attributes:
+      label: Is your feature request related to a problem? Please describe it.
+      description: "A short and clear explanation of the problem. For example, I get frustrated when [...]"
+    validations:
+      required: true
+
+  - type: textarea
+    id: short_desc
+    attributes:
+      label: Explain the feature you want
+      description: "Explain the feature you want. A short and clear description of what you want."
+    validations:
+      required: false
+
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: "Add any extra details or screenshots about the feature here."
+    validations:
+      required: false
