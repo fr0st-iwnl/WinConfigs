@@ -1,13 +1,15 @@
 name: Feature Request
 description: Share an idea for a new feature
 labels: ["help wanted"]
+
+body:
   - type: checkboxes
     attributes:
       label: Already searched for help? *
       description: Before asking for help, check if a similar issue or solution already exists in the open or closed issues.
       options:
-      - label: I have searched the existing open and closed issues.
-        required: true
+        - label: I have searched the existing open and closed issues.
+          required: true
 
   - type: textarea
     id: problem_req
@@ -24,7 +26,6 @@ labels: ["help wanted"]
       description: "Explain the feature you want. A short and clear description of what you want."
     validations:
       required: false
-
 
   - type: textarea
     id: context
