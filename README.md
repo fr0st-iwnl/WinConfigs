@@ -133,6 +133,10 @@ Each repository will be listed with a prompt when you run the script, asking if 
 </td>
 </table>
 
+## 🌐 Blog Post
+Learn more about **WinConfigs** in my blog post:
+##### 📖 - [Read the Blog](https://fr0st.xyz/articles/article4.html)
+
 ## 📝 TODO's
 
 - [x] Create categories for **System Monitor**, **System Info**, and others.
