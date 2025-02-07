@@ -1276,13 +1276,13 @@ if "%repo_choice%"=="0" goto main_menu
 if %repo_choice% gtr %counter% (
     echo %COLOR_RED%Invalid choice. Please try again.%COLOR_RESET%
     pause
-    goto custom_repositories
+    goto main_menu
 )
 
 if %repo_choice% lss 1 (
     echo %COLOR_RED%Invalid choice. Please try again.%COLOR_RESET%
     pause
-    goto custom_repositories
+    goto main_menu
 )
 
 :: REPOSITORY DETAILS
@@ -1313,7 +1313,7 @@ if /i "%confirm_install%"=="y" (
     echo %COLOR_RED%Installation canceled.%COLOR_RESET%
     pause
 )
-goto custom_repositories
+goto main_menu
 
 ::-----------------------
 :: INSTALL REPOSITORY
