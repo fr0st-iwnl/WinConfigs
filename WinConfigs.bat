@@ -1,6 +1,6 @@
 @echo off
 cls
-title "WinConfigs v1.7 | made by @fr0st-iwnl"
+title "WinConfigs v1.8 | made by @fr0st-iwnl"
 
 ::========================================================================================================
 ::
@@ -47,11 +47,15 @@ set "COLOR_CYAN=%ESC%[36m"
 set "COLOR_LIGHT_YELLOW=%ESC%[38;5;230m"
 set "COLOR_WHITE=%ESC%[97m"
 set "COLOR_MAGENTA=%ESC%[35m"
+set "COLOR_BRIGHT_CYAN=%ESC%[38;5;81m"
+set "COLOR_PURPLE_MAGENTA_LIKE=%ESC%[38;5;141m"
+set "COLOR_UTILS=%ESC%[38;5;121m"
+
 
 ::-------------------
 :: VERSION CHECK
 ::-------------------
-set "LOCAL_VERSION=1.7"
+set "LOCAL_VERSION=1.8"
 
 for /f "delims=" %%i in ('powershell -Command "(Invoke-WebRequest -Uri https://winconfigs.netlify.app/version/version.txt).Content.Trim()"') do set "LATEST_VERSION=%%i"
 
@@ -145,25 +149,304 @@ echo %COLOR_MAGENTA%************************************%COLOR_RESET%
 echo.
 echo %COLOR_GREEN%[1] Package Manager%COLOR_RESET%
 echo %COLOR_GREEN%[2] Custom Repositories%COLOR_RESET%
-echo %COLOR_CYAN%[3] System Utilities%COLOR_RESET%
+echo %COLOR_UTILS%[3] System Utilities%COLOR_RESET%
 echo %COLOR_BLUE%[4] WinUtil%COLOR_RESET%
-echo %COLOR_MAGENTA%[5] Tweaks%COLOR_RESET%
+echo %COLOR_PURPLE_MAGENTA_LIKE%[5] Tweaks%COLOR_RESET%
+echo %COLOR_BRIGHT_CYAN%[6] Cursors%COLOR_RESET%
 echo.
 echo %COLOR_LIGHT_RED%[0] Exit%COLOR_RESET%
 echo.
 set /p choice="< "
-
 if "%choice%"=="1" goto package_manager
 if "%choice%"=="2" goto custom_repositories
 if "%choice%"=="3" goto system_utilities
 if "%choice%"=="4" goto winutil
 if "%choice%"=="5" goto tweaks
+if "%choice%"=="6" goto cursor_menu
 if "%choice%"=="0" goto exit_script
 echo %COLOR_RED%Invalid choice. Please try again.%COLOR_RESET%
 pause
 goto main_menu
 
 
+::-------------------
+:: CURSOR MENU
+::-------------------
+:cursor_menu
+cls
+echo %COLOR_MAGENTA%************************************%COLOR_RESET%
+echo %COLOR_BLUE%           CURSOR MENU%COLOR_RESET%
+echo %COLOR_MAGENTA%************************************%COLOR_RESET%
+echo.
+echo %COLOR_LIGHT_CYAN%Select a cursor pack:%COLOR_RESET%
+echo.
+echo %COLOR_CYAN%[1] Windows Default Cursor%COLOR_RESET%
+echo %COLOR_GREEN%[2] Bibata-Modern-Ice Cursor%COLOR_RESET%
+echo %COLOR_GREEN%[3] MacOS-White Cursor%COLOR_RESET%
+echo %COLOR_GREEN%[4] XCursorPro-Light Cursor%COLOR_RESET%
+echo.
+echo %COLOR_LIGHT_RED%[0] Back to Main Menu%COLOR_RESET%
+echo.
+set /p cursor_choice="< "
+
+if "%cursor_choice%"=="1" goto windows_menu
+if "%cursor_choice%"=="2" goto bibata_menu
+if "%cursor_choice%"=="3" goto macos_menu
+if "%cursor_choice%"=="4" goto xcursorpro_light_menu
+if "%cursor_choice%"=="0" goto main_menu
+echo %COLOR_RED%Invalid choice. Please try again.%COLOR_RESET%
+pause
+goto cursor_menu
+
+
+::-------------------
+:: WINDOWS MENU
+::-------------------
+:windows_menu
+cls
+echo %COLOR_MAGENTA%************************************%COLOR_RESET%
+echo %COLOR_BLUE%       DEFAULT WINDOWS CURSOR%COLOR_RESET%
+echo %COLOR_MAGENTA%************************************%COLOR_RESET%
+echo.
+echo %COLOR_GREEN%[1] Revert to Windows Default Cursor%COLOR_RESET%
+echo.
+echo %COLOR_LIGHT_RED%[0] Back to Cursor Menu%COLOR_RESET%
+echo.
+set /p another_choice="< "
+
+if "%another_choice%"=="1" goto reset_windows_cursor
+if "%another_choice%"=="0" goto cursor_menu
+echo %COLOR_RED%Invalid choice. Please try again.%COLOR_RESET%
+pause
+goto windows_menu
+
+
+::-----------------------
+:: RESET WINDOWS CURSOR
+::-----------------------
+:reset_windows_cursor
+echo Reverting to Windows Default Cursor...
+
+:: Set the Windows Default scheme first
+reg add "HKCU\Control Panel\Cursors" /ve /d "Windows Default (system scheme)" /f >nul 2>&1
+reg add "HKCU\Control Panel\Cursors" /v "Scheme Source" /t REG_DWORD /d "0" /f >nul 2>&1
+
+:: Reset cursor scheme to Windows Default
+reg add "HKCU\Control Panel\Cursors" /v "(Default)" /t REG_SZ /d "Windows Default" /f >nul 2>&1
+
+:: Reset each cursor manually to default silently
+reg add "HKCU\Control Panel\Cursors" /v Arrow /t REG_SZ /d "%SystemRoot%\cursors\arrow.cur" /f >nul 2>&1
+reg add "HKCU\Control Panel\Cursors" /v Hand /t REG_SZ /d "%SystemRoot%\cursors\hand.cur" /f >nul 2>&1
+reg add "HKCU\Control Panel\Cursors" /v Help /t REG_SZ /d "%SystemRoot%\cursors\help.cur" /f >nul 2>&1
+reg add "HKCU\Control Panel\Cursors" /v AppStarting /t REG_SZ /d "%SystemRoot%\cursors\wait.cur" /f >nul 2>&1
+reg add "HKCU\Control Panel\Cursors" /v Wait /t REG_SZ /d "%SystemRoot%\cursors\busy.cur" /f >nul 2>&1
+reg add "HKCU\Control Panel\Cursors" /v NWPen /t REG_SZ /d "%SystemRoot%\cursors\pen.cur" /f >nul 2>&1
+reg add "HKCU\Control Panel\Cursors" /v No /t REG_SZ /d "%SystemRoot%\cursors\no.cur" /f >nul 2>&1
+reg add "HKCU\Control Panel\Cursors" /v SizeAll /t REG_SZ /d "%SystemRoot%\cursors\sizeall.cur" /f >nul 2>&1
+reg add "HKCU\Control Panel\Cursors" /v SizeNESW /t REG_SZ /d "%SystemRoot%\cursors\sizenesw.cur" /f >nul 2>&1
+reg add "HKCU\Control Panel\Cursors" /v SizeNS /t REG_SZ /d "%SystemRoot%\cursors\sizens.cur" /f >nul 2>&1
+reg add "HKCU\Control Panel\Cursors" /v SizeNWSE /t REG_SZ /d "%SystemRoot%\cursors\sizenwse.cur" /f >nul 2>&1
+reg add "HKCU\Control Panel\Cursors" /v SizeWE /t REG_SZ /d "%SystemRoot%\cursors\sizewe.cur" /f >nul 2>&1
+reg add "HKCU\Control Panel\Cursors" /v UpArrow /t REG_SZ /d "%SystemRoot%\cursors\up.cur" /f >nul 2>&1
+reg add "HKCU\Control Panel\Cursors" /v Crosshair /t REG_SZ /d "%SystemRoot%\cursors\cross.cur" /f >nul 2>&1
+reg add "HKCU\Control Panel\Cursors" /v IBeam /t REG_SZ /d "%SystemRoot%\cursors\ibeam.cur" /f >nul 2>&1
+reg add "HKCU\Control Panel\Cursors" /v DiagCross /t REG_SZ /d "%SystemRoot%\cursors\cross.cur" /f >nul 2>&1
+reg add "HKCU\Control Panel\Cursors" /v Pin /t REG_SZ /d "%SystemRoot%\cursors\pin.cur" /f >nul 2>&1
+reg add "HKCU\Control Panel\Cursors" /v Person /t REG_SZ /d "%SystemRoot%\cursors\person.cur" /f >nul 2>&1
+
+:: Apply changes
+RUNDLL32.EXE USER32.DLL,UpdatePerUserSystemParameters 1, True
+timeout /t 2 >nul
+echo %COLOR_GREEN%Windows Default Cursor restored successfully!%COLOR_RESET%
+echo.
+set /p USER_INPUT="%COLOR_LIGHT_CYAN%Do you want to sign out now to fully apply the changes? (Y/N): %COLOR_RESET%"
+if /i "%USER_INPUT%"=="Y" goto sign_out
+if /i "%USER_INPUT%"=="N" goto cursor_menu
+goto windows_menu
+
+
+
+
+
+::-------------------
+:: BIBATA MENU
+::-------------------
+:bibata_menu
+cls
+echo %COLOR_MAGENTA%************************************%COLOR_RESET%
+echo %COLOR_BLUE%      BIBATA-MODERN-ICE CURSOR%COLOR_RESET%
+echo %COLOR_MAGENTA%************************************%COLOR_RESET%
+echo.
+echo %COLOR_LIGHT_CYAN%[#] Github : https://github.com/ful1e5/Bibata_Cursor%COLOR_RESET%
+echo.
+echo %COLOR_GREEN%[1] Install Bibata-Modern-Ice Cursor%COLOR_RESET%
+echo %COLOR_RED%[2] Uninstall Bibata-Modern-Ice Cursor%COLOR_RESET%
+echo.
+echo %COLOR_LIGHT_RED%[0] Back to Cursor Menu%COLOR_RESET%
+echo.
+set /p bibata_choice="< "
+
+if "%bibata_choice%"=="1" goto install_bibata
+if "%bibata_choice%"=="2" goto uninstall_bibata
+if "%bibata_choice%"=="0" goto cursor_menu
+echo %COLOR_RED%Invalid choice. Please try again.%COLOR_RESET%
+pause
+goto bibata_menu
+
+::-------------------
+:: INSTALL BIBATA
+::-------------------
+:install_bibata
+echo Starting Bibata-Modern-Ice cursor installation...
+set "CURSOR_PATH=%~dp0Scripts\4. Cursors\Bibata-Modern-Ice\install.inf"
+if not exist "%CURSOR_PATH%" (
+    echo %COLOR_RED%Error: Could not find install.inf%COLOR_RESET%
+    echo Looking in: %CURSOR_PATH%
+    pause
+    goto bibata_menu
+)
+echo %COLOR_LIGHT_YELLOW%- To check how the cursor looks, you can preview it in the Customize category of the Mouse Properties.%COLOR_RESET%
+echo.
+echo %COLOR_GREEN%Found install.inf at:%COLOR_RESET% %COLOR_LIGHT_CYAN%%CURSOR_PATH%%COLOR_DEFAULT%
+%SystemRoot%\System32\InfDefaultInstall.exe "%CURSOR_PATH%"
+echo %COLOR_GREEN%Installation prompt completed!%COLOR_RESET%
+pause
+goto bibata_menu
+
+::-------------------
+:: UNINSTALL BIBATA
+::-------------------
+:uninstall_bibata
+echo Uninstalling Bibata cursor...
+pushd "%~dp0Scripts\4. Cursors\Bibata-Modern-Ice"
+call uninstall.bat
+popd
+echo %COLOR_GREEN%Bibata-Modern-Ice cursor uninstalled successfully!%COLOR_RESET%
+pause
+goto bibata_menu
+
+
+::-------------------
+:: MACOS MENU
+::-------------------
+:macos_menu
+cls
+echo %COLOR_MAGENTA%************************************%COLOR_RESET%
+echo %COLOR_BLUE%        MACOS-WHITE CURSOR%COLOR_RESET%
+echo %COLOR_MAGENTA%************************************%COLOR_RESET%
+echo.
+echo %COLOR_LIGHT_CYAN%[#] Github : https://github.com/ful1e5/apple_cursor%COLOR_RESET%
+echo.
+echo %COLOR_GREEN%[1] Install MacOS-White Cursor%COLOR_RESET%
+echo %COLOR_RED%[2] Uninstall MacOS-White Cursor%COLOR_RESET%
+echo.
+echo %COLOR_LIGHT_RED%[0] Back to Cursor Menu%COLOR_RESET%
+echo.
+set /p macos_choice="< "
+
+if "%macos_choice%"=="1" goto install_macos
+if "%macos_choice%"=="2" goto uninstall_macos
+if "%macos_choice%"=="0" goto cursor_menu
+echo %COLOR_RED%Invalid choice. Please try again.%COLOR_RESET%
+pause
+goto macos_menu
+
+
+::-------------------
+:: INSTALL MACOS
+::-------------------
+:install_macos
+echo Starting MacOS-White cursor installation...
+set "CURSOR_PATH=%~dp0Scripts\4. Cursors\MacOS-White\install.inf"
+if not exist "%CURSOR_PATH%" (
+    echo %COLOR_RED%Error: Could not find install.inf%COLOR_RESET%
+    echo Looking in: %CURSOR_PATH%
+    pause
+    goto macos_menu
+)
+echo %COLOR_LIGHT_YELLOW%- To check how the cursor looks, you can preview it in the Customize category of the Mouse Properties.%COLOR_RESET%
+echo.
+echo %COLOR_GREEN%Found install.inf at:%COLOR_RESET% %COLOR_LIGHT_CYAN%%CURSOR_PATH%%COLOR_DEFAULT%
+%SystemRoot%\System32\InfDefaultInstall.exe "%CURSOR_PATH%"
+echo %COLOR_GREEN%Installation prompt completed!%COLOR_RESET%
+pause
+goto macos_menu
+
+
+::-------------------
+:: UNINSTALL MACOS
+::-------------------
+:uninstall_macos
+echo Uninstalling MacOS cursor...
+pushd "%~dp0Scripts\4. Cursors\MacOS-White"
+call uninstall.bat
+popd
+echo %COLOR_GREEN%MacOS-White cursor uninstalled successfully!%COLOR_RESET%
+pause
+goto macos_menu
+
+
+::-------------------
+:: XCURSORPRO MENU
+::-------------------
+:xcursorpro_light_menu
+cls
+echo %COLOR_MAGENTA%************************************%COLOR_RESET%
+echo %COLOR_BLUE%      XCURSORPRO-LIGHT CURSOR%COLOR_RESET%
+echo %COLOR_MAGENTA%************************************%COLOR_RESET%
+echo.
+echo %COLOR_LIGHT_CYAN%[#] Github : https://github.com/ful1e5/XCursor-pro%COLOR_RESET%
+echo.
+echo %COLOR_GREEN%[1] Install XCursorPro-Light Cursor%COLOR_RESET%
+echo %COLOR_RED%[2] Uninstall XCursorPro Cursor%COLOR_RESET%
+echo.
+echo %COLOR_LIGHT_RED%[0] Back to Cursor Menu%COLOR_RESET%
+echo.
+set /p xcursorpro_choice="< "
+
+if "%xcursorpro_choice%"=="1" goto install_xcursorprolight
+if "%xcursorpro_choice%"=="2" goto uninstall_xcursorprolight
+if "%xcursorpro_choice%"=="0" goto cursor_menu
+echo %COLOR_RED%Invalid choice. Please try again.%COLOR_RESET%
+pause
+goto xcursorpro_light_menu
+
+::---------------------
+:: INSTALL XCURSORPRO
+::---------------------
+:install_xcursorprolight
+echo Starting XCursorPro-Light cursor installation...
+set "CURSOR_PATH=%~dp0Scripts\4. Cursors\XCursorPro-Light\install.inf"
+if not exist "%CURSOR_PATH%" (
+    echo %COLOR_RED%Error: Could not find install.inf%COLOR_RESET%
+    echo Looking in: %CURSOR_PATH%
+    pause
+    goto xcursorpro_light_menu
+)
+echo %COLOR_LIGHT_YELLOW%- To check how the cursor looks, you can preview it in the Customize category of the Mouse Properties.%COLOR_RESET%
+echo.
+echo %COLOR_GREEN%Found install.inf at:%COLOR_RESET% %COLOR_LIGHT_CYAN%%CURSOR_PATH%%COLOR_DEFAULT%
+%SystemRoot%\System32\InfDefaultInstall.exe "%CURSOR_PATH%"
+echo %COLOR_GREEN%Installation prompt completed!%COLOR_RESET%
+pause
+goto xcursorpro_light_menu
+
+
+::-----------------------
+:: UNINSTALL XCURSORPRO
+::-----------------------
+:uninstall_xcursorprolight
+echo Uninstalling XCursorPro-Light cursor...
+pushd "%~dp0Scripts\4. Cursors\XCursorPro-Light"
+call uninstall.bat
+popd
+echo %COLOR_GREEN%XCursorPro-Light cursor uninstalled successfully!%COLOR_RESET%
+pause
+goto xcursorpro_light_menu
+
+::-------------------
+:: TWEAKS
+::-------------------
 :tweaks
 cls
 type ASCII\ascii.txt
@@ -249,7 +532,9 @@ start "" "%~dp0Scripts\3. Security\DefenderRemover.exe"
 
 goto tweaks
 
-
+::-------------------
+:: WEB SEARCH MENU
+::-------------------
 :websearch
 cls
 echo %COLOR_MAGENTA%************************************%COLOR_RESET%
@@ -965,7 +1250,7 @@ cls
 type ASCII\ascii.txt
 echo.
 echo %COLOR_MAGENTA%************************************%COLOR_RESET%
-echo %COLOR_CYAN%       SYSTEM UTILITIES%COLOR_RESET%
+echo %COLOR_CYAN%         SYSTEM UTILITIES%COLOR_RESET%
 echo %COLOR_MAGENTA%************************************%COLOR_RESET%
 echo.
 echo %COLOR_GREEN%[1] System Info%COLOR_RESET%
@@ -998,12 +1283,12 @@ echo %COLOR_MAGENTA%************************************%COLOR_RESET%
 echo %COLOR_BLUE%      PACKAGE MANAGER MENU%COLOR_RESET%
 echo %COLOR_MAGENTA%************************************%COLOR_RESET%
 echo.
+echo %COLOR_WHITE%----------- SCOOP -----------%COLOR_RESET%
 echo %COLOR_GREEN%[1] Install Scoop%COLOR_RESET%
 echo %COLOR_GREEN%[2] Update Scoop%COLOR_RESET%
 echo %COLOR_GREEN%[3] Uninstall Scoop%COLOR_RESET%
 echo.
-echo %COLOR_CYAN%************* Packages *************%COLOR_RESET%
-echo.
+echo %COLOR_WHITE%---------- PACKAGES ----------%COLOR_RESET%
 echo %COLOR_GREEN%[4] Install Packages%COLOR_RESET%
 echo %COLOR_GREEN%[5] Uninstall Packages%COLOR_RESET%
 echo.
@@ -1231,7 +1516,7 @@ cls
 type ASCII\ascii.txt
 echo.
 echo %COLOR_MAGENTA%************************************%COLOR_RESET%
-echo %COLOR_CYAN%       CUSTOM REPOSITORIES%COLOR_RESET%
+echo %COLOR_CYAN%        CUSTOM REPOSITORIES%COLOR_RESET%
 echo %COLOR_MAGENTA%************************************%COLOR_RESET%
 echo.
 echo %COLOR_LIGHT_CYAN%If you want to add a new repository, please create a pull request here:%COLOR_RESET%
@@ -1357,6 +1642,32 @@ pause
 goto custom_repositories
 
 
+::-------------------
+:: SYSTEM MONITOR
+::-------------------
+:system_monitor
+cls
+type ASCII\ascii.txt
+echo.
+call :check_scoop_installed
+if errorlevel 1 (
+    echo %COLOR_RED%Error:%COLOR_RESET% Scoop is not installed. Please install Scoop to proceed with system monitor.
+    pause
+    goto system_utilities
+)
+
+if not exist "%USERPROFILE%\scoop\apps\ntop\current\ntop.exe" (
+    echo NTop is not installed. Installing NTop now...
+    powershell -Command "scoop install ntop"
+    timeout /t 5 >nul
+)
+
+echo.
+echo %COLOR_LIGHT_YELLOW%Displaying System Monitor with NTop...%COLOR_RESET%
+echo.
+powershell -Command "ntop"
+pause
+goto system_utilities
 
 
 
@@ -1384,34 +1695,6 @@ echo.
 echo %COLOR_LIGHT_YELLOW%Displaying System Info with Fastfetch...%COLOR_RESET%
 echo.
 powershell -Command "fastfetch"
-pause
-goto system_utilities
-
-
-::-------------------
-:: SYSTEM MONITOR
-::-------------------
-:system_monitor
-cls
-type ASCII\ascii.txt
-echo.
-call :check_scoop_installed
-if errorlevel 1 (
-    echo %COLOR_RED%Error:%COLOR_RESET% Scoop is not installed. Please install Scoop to proceed with system monitor.
-    pause
-    goto system_utilities
-)
-
-if not exist "%USERPROFILE%\scoop\apps\ntop\current\ntop.exe" (
-    echo NTop is not installed. Installing NTop now...
-    powershell -Command "scoop install ntop"
-    timeout /t 5 >nul
-)
-
-echo.
-echo %COLOR_LIGHT_YELLOW%Displaying System Monitor with NTop...%COLOR_RESET%
-echo.
-powershell -Command "ntop"
 pause
 goto system_utilities
 
