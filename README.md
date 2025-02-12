@@ -75,6 +75,15 @@ git clone https://github.com/fr0st-iwnl/WinConfigs.git
 
 </details>
 
+<details>
+<summary>🖱️ Cursors</summary>
+
+- **Personalization**
+  - Customize your system's appearance by installing or uninstalling different cursor themes. Choose from a variety of options, including [Bibata](https://github.com/ful1e5/Bibata_Cursor), [MacOS](https://github.com/ful1e5/apple_cursor), [XCursorPro](https://github.com/ful1e5/XCursor-pro), and more.
+  - **Simply select the cursor you want to install, and the `Mouse Properties` window will appear, showing a preview.**
+
+</details>
+
 
 
 ## 🔧 Configuration
