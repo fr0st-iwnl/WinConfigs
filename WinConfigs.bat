@@ -168,6 +168,10 @@ echo %COLOR_RED%Invalid choice. Please try again.%COLOR_RESET%
 pause
 goto main_menu
 
+
+::-------------------
+:: CURSOR MENU
+::-------------------
 :cursor_menu
 cls
 echo %COLOR_MAGENTA%************************************%COLOR_RESET%
@@ -195,6 +199,9 @@ pause
 goto cursor_menu
 
 
+::-------------------
+:: WINDOWS MENU
+::-------------------
 :windows_menu
 cls
 echo %COLOR_MAGENTA%************************************%COLOR_RESET%
@@ -213,6 +220,10 @@ echo %COLOR_RED%Invalid choice. Please try again.%COLOR_RESET%
 pause
 goto windows_menu
 
+
+::-----------------------
+:: RESET WINDOWS CURSOR
+::-----------------------
 :reset_windows_cursor
 echo Reverting to Windows Default Cursor...
 
@@ -257,7 +268,9 @@ goto windows_menu
 
 
 
-
+::-------------------
+:: BIBATA MENU
+::-------------------
 :bibata_menu
 cls
 echo %COLOR_MAGENTA%************************************%COLOR_RESET%
@@ -280,6 +293,9 @@ echo %COLOR_RED%Invalid choice. Please try again.%COLOR_RESET%
 pause
 goto bibata_menu
 
+::-------------------
+:: INSTALL BIBATA
+::-------------------
 :install_bibata
 echo Starting Bibata-Modern-Ice cursor installation...
 set "CURSOR_PATH=%~dp0Scripts\4. Cursors\Bibata-Modern-Ice\install.inf"
@@ -297,6 +313,9 @@ echo %COLOR_GREEN%Installation prompt completed!%COLOR_RESET%
 pause
 goto bibata_menu
 
+::-------------------
+:: UNINSTALL BIBATA
+::-------------------
 :uninstall_bibata
 echo Uninstalling Bibata cursor...
 pushd "%~dp0Scripts\4. Cursors\Bibata-Modern-Ice"
@@ -306,6 +325,10 @@ echo %COLOR_GREEN%Bibata-Modern-Ice cursor uninstalled successfully!%COLOR_RESET
 pause
 goto bibata_menu
 
+
+::-------------------
+:: MACOS MENU
+::-------------------
 :macos_menu
 cls
 echo %COLOR_MAGENTA%************************************%COLOR_RESET%
@@ -328,6 +351,10 @@ echo %COLOR_RED%Invalid choice. Please try again.%COLOR_RESET%
 pause
 goto macos_menu
 
+
+::-------------------
+:: INSTALL MACOS
+::-------------------
 :install_macos
 echo Starting MacOS-White cursor installation...
 set "CURSOR_PATH=%~dp0Scripts\4. Cursors\MacOS-White\install.inf"
@@ -345,6 +372,10 @@ echo %COLOR_GREEN%Installation prompt completed!%COLOR_RESET%
 pause
 goto macos_menu
 
+
+::-------------------
+:: UNINSTALL MACOS
+::-------------------
 :uninstall_macos
 echo Uninstalling MacOS cursor...
 pushd "%~dp0Scripts\4. Cursors\MacOS-White"
@@ -355,6 +386,9 @@ pause
 goto macos_menu
 
 
+::-------------------
+:: XCURSORPRO MENU
+::-------------------
 :xcursorpro_light_menu
 cls
 echo %COLOR_MAGENTA%************************************%COLOR_RESET%
@@ -377,6 +411,9 @@ echo %COLOR_RED%Invalid choice. Please try again.%COLOR_RESET%
 pause
 goto xcursorpro_light_menu
 
+::---------------------
+:: INSTALL XCURSORPRO
+::---------------------
 :install_xcursorprolight
 echo Starting XCursorPro-Light cursor installation...
 set "CURSOR_PATH=%~dp0Scripts\4. Cursors\XCursorPro-Light\install.inf"
@@ -394,6 +431,10 @@ echo %COLOR_GREEN%Installation prompt completed!%COLOR_RESET%
 pause
 goto xcursorpro_light_menu
 
+
+::-----------------------
+:: UNINSTALL XCURSORPRO
+::-----------------------
 :uninstall_xcursorprolight
 echo Uninstalling XCursorPro-Light cursor...
 pushd "%~dp0Scripts\4. Cursors\XCursorPro-Light"
@@ -403,7 +444,9 @@ echo %COLOR_GREEN%XCursorPro-Light cursor uninstalled successfully!%COLOR_RESET%
 pause
 goto xcursorpro_light_menu
 
-
+::-------------------
+:: TWEAKS
+::-------------------
 :tweaks
 cls
 type ASCII\ascii.txt
@@ -489,7 +532,9 @@ start "" "%~dp0Scripts\3. Security\DefenderRemover.exe"
 
 goto tweaks
 
-
+::-------------------
+:: WEB SEARCH MENU
+::-------------------
 :websearch
 cls
 echo %COLOR_MAGENTA%************************************%COLOR_RESET%
