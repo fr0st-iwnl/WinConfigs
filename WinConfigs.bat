@@ -55,7 +55,7 @@ set "COLOR_UTILS=%ESC%[38;5;121m"
 ::-------------------
 :: VERSION CHECK
 ::-------------------
-set "LOCAL_VERSION=1.7"
+set "LOCAL_VERSION=1.8"
 
 for /f "delims=" %%i in ('powershell -Command "(Invoke-WebRequest -Uri https://winconfigs.netlify.app/version/version.txt).Content.Trim()"') do set "LATEST_VERSION=%%i"
 
