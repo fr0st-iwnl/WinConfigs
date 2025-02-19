@@ -75,6 +75,15 @@ git clone https://github.com/fr0st-iwnl/WinConfigs.git
 
 </details>
 
+<details>
+<summary>🖱️ Cursors</summary>
+
+- **Personalization**
+  - Customize your system's appearance by installing or uninstalling different cursor themes. Choose from a variety of options, including [Bibata](https://github.com/ful1e5/Bibata_Cursor), [MacOS](https://github.com/ful1e5/apple_cursor), [XCursorPro](https://github.com/ful1e5/XCursor-pro), and more.
+  - **Simply select the cursor you want to install, and the `Mouse Properties` window will appear, showing a preview.**
+
+</details>
+
 
 
 ## 🔧 Configuration
@@ -131,6 +140,11 @@ Each repository will be listed with a prompt when you run the script, asking if 
 <b><a href="https://github.com/ionuttbara/windows-defender-remover">ionuttbara</a></b><br/>
 <sub>WDR</sub>
 </td>
+<td align="center">
+<img src="https://avatars.githubusercontent.com/u/24286590?v=4" width="60px" alt="Cursors"><br/>
+<b><a href="https://github.com/ful1e5">ful1e5</a></b><br/>
+<sub>Cursors</sub>
+</td>
 </table>
 
 ## 🌐 Blog Post
@@ -151,3 +165,4 @@ Learn more about **WinConfigs** in my blog post:
 - [x] Add a new category in the main menu called "Tweaks"
 - [x] Fix some bugs
 - [x] Add simple notes for the tweaks to explain what they do and improve the script. Maybe make a wiki page.
+- [x] Add a feature to `install/uninstall` custom cursors 
