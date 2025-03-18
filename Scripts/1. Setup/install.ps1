@@ -1,11 +1,14 @@
 # Define variables
-$repoUrl = "https://github.com/fr0st-iwnl/WinConfigs/archive/refs/heads/master.zip"
+$repo = "fr0st-iwnl/WinConfigs"
+$repoUrl = (Invoke-RestMethod -Uri "https://api.github.com/repos/$repo/releases/latest").assets | 
+           Where-Object { $_.name -eq "WinConfigs.zip" } | 
+           Select-Object -ExpandProperty browser_download_url
 $desktopPath = [System.IO.Path]::Combine($env:USERPROFILE, "Desktop")
 $tempZip = "$env:LOCALAPPDATA\WinConfigs.zip"
-$iconUrl = "https://raw.githubusercontent.com/fr0st-iwnl/WinConfigs/refs/heads/master/Assets/icon.ico"
+$iconUrl = "https://raw.githubusercontent.com/fr0st-iwnl/assets/refs/heads/main/thumbnails/WinConfigs/icon.ico"
 $extractedFolder = "$env:LOCALAPPDATA\WinConfigs"  # Extracted folder location in AppData\Local\Temp
 $shortcutPath = "$desktopPath\WinConfigs.lnk"  # Shortcut will be on Desktop
-$assetsFolder = "$extractedFolder\Assets"
+$assetsFolder = "$extractedFolder\Assets\Icons"
 
 if (-not (Test-Path -Path $assetsFolder)) {
     Write-Host "Creating Assets folder..." -ForegroundColor Yellow
@@ -41,7 +44,7 @@ Expand-Archive -Path $tempZip -DestinationPath $extractedFolder -Force
 
 # Step 5: Handle double folder structure (if any)
 $innerFolder = Get-ChildItem -Path $extractedFolder -Directory | Select-Object -First 1
-if ($innerFolder.Name -match "WinConfigs-master") {
+if ($innerFolder.Name -match "WinConfigs") {
     Write-Host "Fixing folder structure..." -ForegroundColor Yellow
     Move-Item -Path "$($innerFolder.FullName)\*" -Destination $extractedFolder -Force
     Remove-Item -Path $innerFolder.FullName -Recurse -Force
@@ -50,9 +53,12 @@ if ($innerFolder.Name -match "WinConfigs-master") {
 # Step 6: Cleanup the temporary ZIP file
 Remove-Item -Path $tempZip -Force
 
-# Step 7: Download the icon file to the Assets folder (will overwrite if exists)
+# Step 7: Create Icons folder and download the icon file
+Write-Host "Creating Icons folder..." -ForegroundColor Yellow
+New-Item -ItemType Directory -Path "$extractedFolder\Assets\Icons" -Force | Out-Null
+
 Write-Host "Downloading the icon file..." -ForegroundColor Cyan
-Invoke-WebRequest -Uri $iconUrl -OutFile "$extractedFolder\Assets\icon.ico"
+Invoke-WebRequest -Uri $iconUrl -OutFile "$extractedFolder\Assets\Icons\icon.ico"
 
 # Step 8: Create the desktop shortcut (will overwrite if exists)
 Write-Host "Creating a desktop shortcut..." -ForegroundColor Cyan
@@ -71,7 +77,7 @@ $shortcut = $shell.CreateShortcut($shortcutPath)
 $shortcut.TargetPath = $extractedFolder
 $shortcut.WorkingDirectory = $extractedFolder
 $shortcut.WindowStyle = 1
-$shortcut.IconLocation = "$extractedFolder\Assets\icon.ico" # Use the downloaded icon from the extracted folder
+$shortcut.IconLocation = "$extractedFolder\Assets\Icons\icon.ico" # Use the downloaded icon from the extracted folder
 
 # Save the shortcut
 $shortcut.Save()
