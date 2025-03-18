@@ -166,4 +166,4 @@ Learn more about **WinConfigs** in my blog post:
 - [x] Fix some bugs
 - [x] Add simple notes for the tweaks to explain what they do and improve the script. Maybe make a wiki page.
 - [x] Add a feature to `install/uninstall` custom cursors
-- [ ] Remove unnecessary bloat and overhaul the update system.
+- [x] Remove unnecessary bloat and overhaul the update system.
