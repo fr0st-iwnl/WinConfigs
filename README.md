@@ -4,7 +4,7 @@
   <table>
     <tr>
       <td>
-        <img src="https://raw.githubusercontent.com/fr0st-iwnl/WinConfigs/refs/heads/master/Assets/preview.png"/>
+        <img src="https://github.com/fr0st-iwnl/assets/blob/main/thumbnails/WinConfigs/preview.png"/>
       </td>
     </tr>
   </table>
@@ -42,7 +42,7 @@ git clone https://github.com/fr0st-iwnl/WinConfigs.git
   - Install, update, and manage software using **Scoop**.
   - **Customize the packages** you want to install by editing the `.txt` file located in the `Configuration/scoop-packages/packages-list.txt`.
   <br>
-  <img src="https://raw.githubusercontent.com/fr0st-iwnl/WinConfigs/refs/heads/master/Assets/packagemanager.png" width="30%">
+  <img src="https://github.com/fr0st-iwnl/assets/blob/main/thumbnails/WinConfigs/packagemanager.png" width="30%">
 
 </details>
 
@@ -53,7 +53,7 @@ git clone https://github.com/fr0st-iwnl/WinConfigs.git
   - The script allows you to manage your own custom repositories.
   - Simply add repository URLs to a `.txt` file located in the `Configuration/custom-repos/repos-list.txt`, and the script will automatically download and manage them using **Git**.
   <br>
-  <img src="https://raw.githubusercontent.com/fr0st-iwnl/WinConfigs/refs/heads/master/Assets/customrepos.png" width="60%">
+  <img src="https://github.com/fr0st-iwnl/assets/blob/main/thumbnails/WinConfigs/customrepos.png" width="60%">
 
 </details>
 
