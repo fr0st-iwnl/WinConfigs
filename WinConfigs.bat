@@ -1,6 +1,6 @@
 @echo off
 cls
-title "WinConfigs v1.8 | made by @fr0st-iwnl"
+title "WinConfigs v1.9 | made by @fr0st-iwnl"
 
 ::========================================================================================================
 ::
@@ -24,7 +24,7 @@ title "WinConfigs v1.8 | made by @fr0st-iwnl"
 ::-----------------------------
 :: CHECK IF ASCII FILE EXISTS
 ::-----------------------------
-if not exist "ASCII\ascii.txt" (
+if not exist "Assets\ASCII\ascii.txt" (
     echo %COLOR_RED%Error: ASCII file not found. Please extract the files correctly.%COLOR_RESET%
     pause
     exit
@@ -55,9 +55,12 @@ set "COLOR_UTILS=%ESC%[38;5;121m"
 ::-------------------
 :: VERSION CHECK
 ::-------------------
-set "LOCAL_VERSION=1.8"
+set "LOCAL_VERSION=1.9"
 
 for /f "delims=" %%i in ('powershell -Command "(Invoke-WebRequest -Uri https://winconfigs.netlify.app/version/version.txt).Content.Trim()"') do set "LATEST_VERSION=%%i"
+
+:: Get the latest release download URL
+for /f "delims=" %%u in ('powershell -Command "$repo = 'fr0st-iwnl/WinConfigs'; $releases = Invoke-RestMethod -Uri \"https://api.github.com/repos/$repo/releases/latest\"; $releases.assets | Where-Object { $_.name -eq \"WinConfigs.zip\" } | Select-Object -ExpandProperty browser_download_url"') do set "DOWNLOAD_URL=%%u"
 
 if "%LOCAL_VERSION%"=="%LATEST_VERSION%" (
     goto main_menu
@@ -77,7 +80,7 @@ if "%LOCAL_VERSION%"=="%LATEST_VERSION%" (
 if /i "%install_update%"=="y" (
     echo %COLOR_LIGHT_CYAN%Downloading the latest version from GitHub...%COLOR_RESET%
     
-    powershell -Command "Invoke-WebRequest -Uri https://github.com/fr0st-iwnl/WinConfigs/archive/refs/heads/master.zip -OutFile WinConfigs.zip"
+    powershell -Command "Invoke-WebRequest -Uri '%DOWNLOAD_URL%' -OutFile 'WinConfigs.zip'"
     
     if exist WinConfigs.zip (
         echo %COLOR_GREEN%ZIP file downloaded successfully.%COLOR_RESET%
@@ -86,7 +89,7 @@ if /i "%install_update%"=="y" (
         
         echo.
         echo %COLOR_LIGHT_YELLOW%Files after extraction:%COLOR_RESET%
-        dir /b /s WinConfigs-master
+        dir /b /s WinConfigs
         echo.
         
         echo %COLOR_CYAN%Preserving user configuration files...%COLOR_RESET%
@@ -104,7 +107,7 @@ if /i "%install_update%"=="y" (
         )
         
         echo %COLOR_LIGHT_CYAN%Moving new files...%COLOR_RESET%
-        powershell -Command "Move-Item -Path '.\WinConfigs-master\*' -Destination . -Force"
+        powershell -Command "Move-Item -Path '.\WinConfigs\*' -Destination . -Force"
         
         echo %COLOR_LIGHT_YELLOW%Restoring user configuration files...%COLOR_RESET%
         if exist "%TEMP%\repos-list-user.txt" (
@@ -115,7 +118,7 @@ if /i "%install_update%"=="y" (
         )
         
         del WinConfigs.zip
-        rmdir /s /q WinConfigs-master
+        rmdir /s /q WinConfigs
         
         echo %COLOR_GREEN%The latest version has been downloaded and installed!%COLOR_RESET%
         echo %COLOR_LIGHT_CYAN%Restarting the script...%COLOR_RESET%
@@ -141,7 +144,7 @@ if /i "%install_update%"=="y" (
 ::-------------------
 :main_menu
 cls
-type ASCII\ascii.txt
+type Assets\ASCII\ascii.txt
 echo.
 echo %COLOR_MAGENTA%************************************%COLOR_RESET%
 echo %COLOR_BLUE%           MAIN MENU%COLOR_RESET%
@@ -449,7 +452,7 @@ goto xcursorpro_light_menu
 ::-------------------
 :tweaks
 cls
-type ASCII\ascii.txt
+type Assets\ASCII\ascii.txt
 echo.
 echo %COLOR_MAGENTA%************************************%COLOR_RESET%
 echo %COLOR_CYAN%               TWEAKS%COLOR_RESET%
@@ -1188,7 +1191,7 @@ goto tweaks
 ::-------------------
 :mas
 cls
-type ASCII\ascii.txt
+type Assets\ASCII\ascii.txt
 echo.
 echo %COLOR_MAGENTA%********************************************%COLOR_RESET%
 echo %COLOR_CYAN%     Microsoft Activation Scripts (MAS)%COLOR_RESET%
@@ -1219,7 +1222,7 @@ goto tweaks
 ::-------------------
 :winutil
 cls
-type ASCII\ascii.txt
+type Assets\ASCII\ascii.txt
 echo.
 echo %COLOR_MAGENTA%********************************************%COLOR_RESET%
 echo %COLOR_CYAN%WinUtil: Enhance Your Windows Experience%COLOR_RESET%
@@ -1247,7 +1250,7 @@ goto main_menu
 ::-------------------
 :system_utilities
 cls
-type ASCII\ascii.txt
+type Assets\ASCII\ascii.txt
 echo.
 echo %COLOR_MAGENTA%************************************%COLOR_RESET%
 echo %COLOR_CYAN%         SYSTEM UTILITIES%COLOR_RESET%
@@ -1277,7 +1280,7 @@ goto system_utilities
 ::-------------------
 :package_manager
 cls
-type ASCII\ascii.txt
+type Assets\ASCII\ascii.txt
 echo.
 echo %COLOR_MAGENTA%************************************%COLOR_RESET%
 echo %COLOR_BLUE%      PACKAGE MANAGER MENU%COLOR_RESET%
@@ -1311,7 +1314,7 @@ goto package_manager
 ::-------------------
 :install_scoop
 cls
-type ASCII\ascii.txt
+type Assets\ASCII\ascii.txt
 echo.
 echo Installing Scoop...
 
@@ -1349,7 +1352,7 @@ exit
 ::----------------------
 :install_packages
 cls
-type ASCII\ascii.txt
+type Assets\ASCII\ascii.txt
 echo.
 echo.
 echo %COLOR_LIGHT_YELLOW%[#] Want to add more apps? Visit:%COLOR_RESET% %COLOR_BLUE%https://scoop.sh/#/apps%COLOR_RESET%
@@ -1377,7 +1380,7 @@ if /i not "%confirm_install%"=="y" (
 )
 
 cls
-type ASCII\ascii.txt
+type Assets\ASCII\ascii.txt
 echo.
 echo Installing Packages via Scoop...
 echo %COLOR_WHITE%Please wait while we install the essentials...%COLOR_RESET%
@@ -1411,7 +1414,7 @@ goto package_manager
 ::----------------------
 :uninstall_packages
 cls
-type ASCII\ascii.txt
+type Assets\ASCII\ascii.txt
 echo.
 echo %COLOR_MAGENTA%**************************************%COLOR_RESET%
 echo %COLOR_RED%          WARNING!%COLOR_RESET%
@@ -1441,7 +1444,7 @@ if /i not "%confirm_uninstall%"=="y" (
 )
 
 cls
-type ASCII\ascii.txt
+type Assets\ASCII\ascii.txt
 echo.
 echo Uninstalling Packages via Scoop...
 echo %COLOR_WHITE%Please wait while we uninstall the packages...%COLOR_RESET%
@@ -1462,7 +1465,7 @@ goto package_manager
 ::-------------------
 :update_scoop
 cls
-type ASCII\ascii.txt
+type Assets\ASCII\ascii.txt
 echo.
 powershell -Command "scoop update"
 pause
@@ -1474,7 +1477,7 @@ goto package_manager
 ::-------------------
 :uninstall_scoop
 cls
-type ASCII\ascii.txt
+type Assets\ASCII\ascii.txt
 echo.
 echo %COLOR_YELLOW%Before uninstalling Scoop, all installed Scoop apps must be uninstalled.%COLOR_RESET%
 echo %COLOR_CYAN%Would you like to uninstall all Scoop apps first? (Y/N)%COLOR_RESET%
@@ -1513,7 +1516,7 @@ goto package_manager
 ::-----------------------
 :custom_repositories
 cls
-type ASCII\ascii.txt
+type Assets\ASCII\ascii.txt
 echo.
 echo %COLOR_MAGENTA%************************************%COLOR_RESET%
 echo %COLOR_CYAN%        CUSTOM REPOSITORIES%COLOR_RESET%
@@ -1578,7 +1581,7 @@ set "selected_desc=!repo_desc_%repo_choice%!"
 
 :: Display repository info and prompt for installation
 cls
-type ASCII\ascii.txt
+type Assets\ASCII\ascii.txt
 echo.
 echo %COLOR_CYAN%************************************%COLOR_RESET%
 echo %COLOR_GREEN%       !selected_name! Repository%COLOR_RESET%
@@ -1606,7 +1609,7 @@ goto main_menu
 :install_repository
 :: Parameters: %1=repo_url, %2=repo_name, %3=install_dir, %4=repo_desc
 cls
-type ASCII\ascii.txt
+type Assets\ASCII\ascii.txt
 echo.
 echo %COLOR_CYAN%************************************%COLOR_RESET%
 echo %COLOR_GREEN%Installing %~2 Repository%COLOR_RESET%
@@ -1647,7 +1650,7 @@ goto custom_repositories
 ::-------------------
 :system_monitor
 cls
-type ASCII\ascii.txt
+type Assets\ASCII\ascii.txt
 echo.
 call :check_scoop_installed
 if errorlevel 1 (
@@ -1676,7 +1679,7 @@ goto system_utilities
 ::-------------------
 :system_info
 cls
-type ASCII\ascii.txt
+type Assets\ASCII\ascii.txt
 echo.
 call :check_scoop_installed
 if errorlevel 1 (

@@ -4,7 +4,7 @@
   <table>
     <tr>
       <td>
-        <img src="https://raw.githubusercontent.com/fr0st-iwnl/WinConfigs/refs/heads/master/Assets/preview.png"/>
+        <img src="https://github.com/fr0st-iwnl/assets/blob/main/thumbnails/WinConfigs/preview.png"/>
       </td>
     </tr>
   </table>
@@ -27,11 +27,8 @@
 iwr "https://fr0st.xyz/winconfigs" | iex
 ```
 
-### 2. Download the repository
-- Clone this repository or download the ZIP. **If you downloaded the ZIP, make sure to extract it before running the script.**
-```bash
-git clone https://github.com/fr0st-iwnl/WinConfigs.git
-```
+### 2. Download the repository from Releases
+- Go to the [Releases page](https://github.com/fr0st-iwnl/WinConfigs/releases/latest) and download the `ZIP` file for the latest version. **Make sure to extract it before running the script.**
 
 ## ✨ Features
 
@@ -42,7 +39,7 @@ git clone https://github.com/fr0st-iwnl/WinConfigs.git
   - Install, update, and manage software using **Scoop**.
   - **Customize the packages** you want to install by editing the `.txt` file located in the `Configuration/scoop-packages/packages-list.txt`.
   <br>
-  <img src="https://raw.githubusercontent.com/fr0st-iwnl/WinConfigs/refs/heads/master/Assets/packagemanager.png" width="30%">
+  <img src="https://github.com/fr0st-iwnl/assets/blob/main/thumbnails/WinConfigs/packagemanager.png" width="30%">
 
 </details>
 
@@ -53,7 +50,7 @@ git clone https://github.com/fr0st-iwnl/WinConfigs.git
   - The script allows you to manage your own custom repositories.
   - Simply add repository URLs to a `.txt` file located in the `Configuration/custom-repos/repos-list.txt`, and the script will automatically download and manage them using **Git**.
   <br>
-  <img src="https://raw.githubusercontent.com/fr0st-iwnl/WinConfigs/refs/heads/master/Assets/customrepos.png" width="60%">
+  <img src="https://github.com/fr0st-iwnl/assets/blob/main/thumbnails/WinConfigs/customrepos.png" width="60%">
 
 </details>
 
@@ -165,4 +162,5 @@ Learn more about **WinConfigs** in my blog post:
 - [x] Add a new category in the main menu called "Tweaks"
 - [x] Fix some bugs
 - [x] Add simple notes for the tweaks to explain what they do and improve the script. Maybe make a wiki page.
-- [x] Add a feature to `install/uninstall` custom cursors 
+- [x] Add a feature to `install/uninstall` custom cursors
+- [x] Remove unnecessary bloat and overhaul the update system.
