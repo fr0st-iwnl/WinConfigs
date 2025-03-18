@@ -27,11 +27,8 @@
 iwr "https://fr0st.xyz/winconfigs" | iex
 ```
 
-### 2. Download the repository
-- Clone this repository or download the ZIP. **If you downloaded the ZIP, make sure to extract it before running the script.**
-```bash
-git clone https://github.com/fr0st-iwnl/WinConfigs.git
-```
+### 2. Download the repository from Releases
+- Go to the [Releases page](https://github.com/fr0st-iwnl/WinConfigs/releases/latest) and download the `ZIP` file for the latest version. **Make sure to extract it before running the script.**
 
 ## ✨ Features
 
