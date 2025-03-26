@@ -159,8 +159,9 @@ Learn more about **WinConfigs** in my blog post:
 - [x] Update the script to install custom repositories from a `.txt` file or redesign the installation process for them.
 - [x] Improve version handling in the script for better version tracking and updates.
 - [x] Improve the script and fix minor bugs for smoother user experience.
-- [x] Add a new category in the main menu called "Tweaks"
-- [x] Fix some bugs
+- [x] Add a new category in the main menu called "Tweaks".
+- [x] Fix some bugs.
 - [x] Add simple notes for the tweaks to explain what they do and improve the script. Maybe make a wiki page.
-- [x] Add a feature to `install/uninstall` custom cursors
+- [x] Add a feature to `install/uninstall` custom cursors.
 - [x] Remove unnecessary bloat and overhaul the update system.
+- [ ] Add more **Tweaks** and **Improve** the script.
