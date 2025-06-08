@@ -19,6 +19,18 @@
 </p>
 
 
+# ❗ READ THIS ❗
+
+Hey, just wanted to say that I've been thinking about remaking this project in another language like `C` or `Python` because batch files (`.bat`) are okay for simple stuff, but they're not that great overall.
+
+I originally made this project to automate things and add small tweaks I always wanted. I still use it myself sometimes, mostly for installing packages or cursors but not really for tweaks anymore.
+
+So yeah, I suggest using [AtlasOS](https://atlasos.net/) instead. It's just better for most things.
+
+Also, not sure when I'll remake **WinConfigs**, so it might take a while.
+
+
+
 ## 📦 Installation 
 
 ### 1. Download the repository using PowerShell
