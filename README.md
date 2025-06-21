@@ -125,7 +125,7 @@ Each repository will be listed with a prompt when you run the script, asking if 
 <table>
 <tr>
 <td align="center">
-<img src="https://github.com/ChrisTitusTech/winutil/blob/main/docs/assets/favicon.png?raw=true" width="60px" alt="WinUtil"><br/>
+<img src="https://christitustech.github.io/winutil/assets/favicon.png" width="60px" alt="WinUtil"><br/>
 <b><a href="https://github.com/ChrisTitusTech/winutil">ChrisTitus</a></b><br/>
 <sub>WinUtil</sub>
 </td>
